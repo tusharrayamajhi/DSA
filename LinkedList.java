@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class LinkedList {
     class Node {
         int data;
@@ -9,8 +11,8 @@ public class LinkedList {
         }
     }
 
-    public static Node head;
-    public static Node tail;
+    public  Node head;
+    public  Node tail;
 
     public void Addfirst(int data) {
         // creat node first
@@ -69,19 +71,18 @@ public class LinkedList {
         }
         head = per;
     }
-
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        ll.Addfirst(2);
-        ll.Addfirst(1);
-        ll.Addlast(3);
-        ll.Addlast(4);
-        ll.Addfirst(0);
-        ll.addinmid(2, 9);
-        ll.Print();
-        ll.reverse();
-        ll.Print();
-
+        LinkedList l1 = new LinkedList();
+        l1.Addfirst(2);
+        l1.Addfirst(4);
+        l1.Addfirst(2);
+        l1.Addfirst(9);
+       
+        LinkedList l2 = new LinkedList();
+        l2.Addfirst(4);
+        l2.Addfirst(6);
+        l2.Addfirst(5);
+        l2.Addfirst(7);
     }
 
 }
