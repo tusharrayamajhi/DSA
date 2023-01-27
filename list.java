@@ -74,7 +74,7 @@ public class list {
         ll.AddLast(4);
         ll.Addmid(2, 5);
         ll.print();
-        System.out.println(ll.findnum(head,3));
+        System.out.println(ll.findnum(head,7));
 
     }
 }
