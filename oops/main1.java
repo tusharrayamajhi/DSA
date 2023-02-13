@@ -8,11 +8,11 @@ public class main1 {
        ll.head.next.next = new Node(3);
        ll.head.next.next.next = new Node(4);
        ll.head.next.next.next.next = new Node(5);
-       ll.head.next.next.next = temp;
+       ll.head.next.next.next.next.next = temp;
        //1->2->3->4->5->2
-        System.out.println(ll.checkcircle());
+       System.out.println(ll.checkcircle());
         ll.removecylce();
-        System.out.println(ll.checkcircle());
+       System.out.println( ll.checkcircle());
         ll.print();
         //System.out.println(ll.palinderom());
         // ll.farfe(1);
