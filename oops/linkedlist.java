@@ -55,7 +55,7 @@ public class linkedlist {
         Node curr = tail = head;
         System.out.println(curr.next);
         Node next;
-        while(curr != null){
+        while (curr != null) {
             next = curr.next;
             curr.next = pre;
             pre = curr;
@@ -63,61 +63,66 @@ public class linkedlist {
         }
         head = pre;
     }
-    public void find(int data){
+
+    public void find(int data) {
         Node temp = head;
         int i = 0;
         while (temp != null) {
-            if(temp.data == data){
+            if (temp.data == data) {
                 System.out.println("found at " + i);
             }
             temp = temp.next;
             i++;
         }
     }
-    public int helper(Node head, int key){
-        if(head.next == null){
-           System.out.println("not found");
-        }else if(head.data == key){
+
+    public int helper(Node head, int key) {
+        if (head.next == null) {
+            System.out.println("not found");
+        } else if (head.data == key) {
             return 0;
         }
-        int count = findrecursive(head.next,key);
+        int count = findrecursive(head.next, key);
         return count + 1;
     }
-    
-    public int findrecursive(Node head,int key){
+
+    public int findrecursive(Node head, int key) {
         return helper(head, key);
     }
-    public  void farfe(int index) {
-        if(head == null){
+
+    public void farfe(int index) {
+        if (head == null) {
             System.out.println("empty linked list");
         }
         int a = size - index + 1;
         Node temp = head;
         int i = 1;
-        while(i < a - 1){
+        while (i < a - 1) {
             temp = temp.next;
             i++;
         }
         temp.next = temp.next.next;
     }
-    public Node mid(Node head){
+
+    public Node mid(Node head) {
         Node slow = head;
         Node fast = head;
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
         return slow;
     }
-    public boolean palinderom(){
-        if(head == null || head.next == null){
+
+    public boolean palinderom() {
+        if (head == null || head.next == null) {
             return true;
         }
         Node mid = mid(head);
         Node pre = null;
         Node curr = mid;
         Node next;
-        while(curr != null){
+        while (curr != null) {
             next = curr.next;
             curr.next = pre;
             pre = curr;
@@ -125,8 +130,8 @@ public class linkedlist {
         }
         Node right = pre;
         Node left = head;
-        while(right != null){
-            if(left.data != right.data){
+        while (right != null) {
+            if (left.data != right.data) {
                 return false;
             }
             left = left.next;
@@ -134,43 +139,47 @@ public class linkedlist {
         }
         return true;
     }
-    public boolean checkcircle(){
+
+    public boolean checkcircle() {
         Node slow = head;
         Node fast = head;
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if(fast == slow){
+            if (fast == slow) {
                 return true;
             }
         }
         return false;
     }
-    public Node circle(){
+
+    public void removecylce() {
+        // check the ll is cycle or not
         Node slow = head;
         Node fast = head;
+        boolean cycle = false;
         while(fast != null && fast.next != null){
-            slow = slow.next;
+            slow  = slow.next;
             fast = fast.next.next;
-            if(fast == slow){
-                return fast;
+            if(slow == fast){
+                cycle = true;
+                break;
             }
         }
-        return fast;
-    }
-    public void removecylce(){
-        //check the ll is cycle or not
-
-            Node fast = circle();
-            Node slow = head;
-            Node pre = null;
-            while(slow != fast){
-                pre = fast;
-                fast = fast.next;
-                slow = slow.next;
-            }
-            pre.next = null;
-        //
+        if(cycle == false){
+            return;
+        }
+        //finding the meeting point
+        slow = head;
+        Node pre = null;
+        while (slow != fast) {
+            pre = fast;
+            fast = fast.next;
+            slow = slow.next;
+        }
+        //removing circle
+        pre.next = null;
+    
 
     }
 }
